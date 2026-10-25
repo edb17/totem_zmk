@@ -26,7 +26,7 @@ on the [Miryoku](https://github.com/manna-harbour/miryoku) layers.
    │     │     │AltGr│     │     │     │   │     │     │     │AltGr│     │     │
    └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                      │  `  │ Tab │Space│   │Enter│  /  │  \  │
-                     │ Btn │ Nav │Mouse│   │ Sym │ Num │ Fun │
+                     │Media│Mouse│ Nav │   │ Sym │ Num │ Fun │
                      └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
@@ -38,16 +38,17 @@ home row of the *same* hand into modifiers:
 
 | Hold          | Other hand gets                                                              |
 |---------------|------------------------------------------------------------------------------|
-| Tab → Nav     | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Enter, `/`, `\` on the thumbs. H locks Nav ([see below](#nav-lock)) |
-| Space → Mouse | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
+| Space → Nav   | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Menu and Tab on the left thumbs, Enter, `/`, `\` on the right ones. H locks Nav ([see below](#nav-lock)) |
+| Tab → Mouse   | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
 | Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift; Caps Lock where Num has `.` |
 | / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `. 1 2 3 -` (`.` under `]`)                       |
 | \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are)          |
 | `` ` `` → Media | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
 
-Num, Sym and Fun keep Tab and Space on their usual left thumb keys, and Nav
-has Enter, `/` and `\` on the right thumbs, so holding these repeats them
-(on Base, holding them switches layers instead).
+Num, Sym and Fun keep Tab and Space on their usual left thumb keys. Nav has
+Tab there too, Menu (the context menu key) where `` ` `` is, and Enter, `/`
+and `\` on the right thumbs. Held on these layers, Tab, Space, Enter and the
+slashes repeat (on Base, holding them switches layers instead).
 
 The outer pinky keys are Esc and Bksp on every layer except Media, where they
 are **Print Screen** (left) and **Delete** (right). Caps Word (capitals
@@ -67,8 +68,8 @@ All layers (Windows mode; held keys are shaded, "2×" keys need a double tap):
 
 ### Nav lock
 
-Hold Tab and tap **H**: Nav stays on after you let go of Tab, so you can move
-around with one hand. Tap **H** again to go back to Base. (Behind the scenes
+Hold Space and tap **H**: Nav stays on after you let go of Space, so you can
+move around with one hand. Tap **H** again to go back to Base. (Behind the scenes
 this is a separate layer, "Nav Lock", a copy of Nav.)
 
 ### Home row mods
@@ -220,8 +221,8 @@ flashing firmware.
 2. Open <https://zmk.studio> in Chrome or Edge, or install the desktop app
    from <https://zmk.studio/download>.
 3. Select the TOTEM.
-4. **Unlock** the keyboard: hold Tab and tap Q.
-   - The same key is also under Space (with Q), and under Enter, `/` or `\` (with `'`).
+4. **Unlock** the keyboard: hold Space and tap Q.
+   - The same key is also under Tab (with Q), and under Enter, `/` or `\` (with `'`).
    - This is where Miryoku normally puts its "Boot" key. Boot keys are
      disabled here; use the reset button to flash.
 5. Edit and save.
@@ -294,7 +295,7 @@ Once [ZMK v0.4](https://github.com/zmkfirmware/zmk/releases) is released:
   the Tap layer (double tap on the Nav or Mouse layer). Press all 3
   left thumb keys to get back to Windows mode, or all 3 right ones for Mac
   mode.
-- **Letters stop typing, J K L P move the cursor:** Nav is locked (Tab + H).
+- **Letters stop typing, J K L P move the cursor:** Nav is locked (Space + H).
   Tap H to go back to Base.
 - **One half doesn't type:** the halves aren't connected. Press reset on
   both at the same time; if that doesn't help, redo the first-time flashing steps.
