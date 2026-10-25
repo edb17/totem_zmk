@@ -1,10 +1,11 @@
-# TOTEM ZMK config: Miryoku (QWERTY) with Windows and Mac modes
+# TOTEM ZMK config: Miryoku-style layout with Windows and Mac modes
 
 ZMK firmware for the 38-key wireless [TOTEM](https://github.com/GEIGEIGEIST/TOTEM)
-with a Seeed Studio XIAO nRF52840 in each half, running the
-[Miryoku](https://github.com/manna-harbour/miryoku) layout.
+with a Seeed Studio XIAO nRF52840 in each half, running a QWERTY layout built
+on the [Miryoku](https://github.com/manna-harbour/miryoku) layers.
 
-- QWERTY letters, Miryoku layers and home row mods
+- QWERTY letters on all 38 keys, home row mods, Miryoku-style layers
+- Home row mods that react as soon as you press another key (no fixed wait)
 - Windows mode (default, also right for Samsung DeX) and a Mac mode with
   native Mac shortcuts
 - ZMK Studio for changing keys without reflashing
@@ -16,43 +17,78 @@ with a Seeed Studio XIAO nRF52840 in each half, running the
 
 ```
          ┌─────┬─────┬─────┬─────┬─────┐   ┌─────┬─────┬─────┬─────┬─────┐
-         │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │
+         │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  '  │
          ├─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┤
-         │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  '  │
+         │  A  │  S  │  D  │  F  │  G  │   │  H  │  J  │  K  │  L  │  P  │
          │ Win │ Alt │Ctrl │Shift│     │   │     │Shift│Ctrl │ Alt │ Win │
    ┌─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┐
-   │  Q  │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  P  │
+   │ Esc │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  ;  │Bksp │
    │     │ Btn │AltGr│     │     │     │   │     │     │     │AltGr│ Btn │     │
    └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
-                     │ Esc │Space│ Tab │   │Enter│Bksp │ Del │
+                     │  `  │ Tab │Space│   │Enter│  /  │  \  │
                      │Media│ Nav │Mouse│   │ Sym │ Num │ Fun │
                      └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
-Tap a key for the top label, hold it for the bottom label. The two outer
-pinky keys repeat the top-row pinky key of each layer.
+Tap a key for the top label, hold it for the bottom label. `-` and `=` are on
+the Num layer, `[` and `]` too (Shift gives `{` and `}`).
 
 Holding a thumb key switches the *other* hand to a new layer, and turns the
 home row of the *same* hand into modifiers:
 
 | Hold          | Other hand gets                                                              |
 |---------------|------------------------------------------------------------------------------|
-| Space → Nav   | arrows (H J K L ' row: Caps Word, ←, ↓, ↑, →), Home/PgDn/PgUp/End, undo/cut/copy/paste/redo |
-| Tab → Mouse   | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
-| Esc → Media   | volume, previous/next track, play/pause/mute; Bluetooth profiles (see below) |
-| Enter → Sym   | symbols                                                                      |
-| Bksp → Num    | number pad                                                                   |
-| Del → Fun     | F1–F12, Print Screen                                                         |
-| Z or / → Btn  | undo/cut/copy/paste/redo and mouse buttons                                   |
+| Tab → Nav     | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Enter, Bksp, Del on the thumbs. H locks Nav ([see below](#nav-lock)) |
+| Space → Mouse | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
+| `` ` `` → Media | volume, previous/next track, play/pause, stop, fast forward, mute; Bluetooth profiles ([see below](#bluetooth-profiles)) |
+| Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift              |
+| / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `1 2 3 -`                                        |
+| \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are), Menu    |
+| Z or ; → Button | undo/cut/copy/paste/redo and mouse buttons, on both hands                  |
+
+On Nav, Mouse and Button the outer pinky keys are **Print Screen** (left) and
+**Delete** (right); on Media the right one is **Mute**. Caps Word (capitals
+until the end of the word) is on the G key of Nav; with Shift it's Caps Lock.
+
+Undo, cut, copy, paste, redo always come in that order from the pinky inwards,
+mirrored on the right hand. On the left hand that puts them on Z, X, C, V and B,
+like Ctrl+Z/X/C/V.
 
 All layers (Windows mode; held keys are shaded, "2×" keys need a double tap):
 
-![TOTEM Miryoku layers](docs/layout.svg)
+![TOTEM layers](docs/layout.svg)
+
+### Nav lock
+
+Hold Tab and tap **H**: Nav stays on after you let go of Tab, so you can move
+around with one hand. Tap **H** again to go back to Base. (Behind the scenes
+this is a separate layer, "Nav Lock", a copy of Nav.)
+
+### Home row mods
+
+A home row key turns into its modifier as soon as you press **and release**
+another key while holding it, so Shift+letter works at full typing speed. Held
+on its own (for example Shift+click), it becomes the modifier after 200 ms.
+
+- Let go of the letter before the modifier. If the modifier comes up first
+  (within 200 ms), you get both letters; that's what keeps quick rolls like
+  "fo" from turning into "O".
+- To keep Win, Alt, Ctrl and AltGr from triggering by accident while you type,
+  a home row key pressed within 125 ms of the previous key is always a letter.
+  Shift (F and J) skips this pause, so a capital right after a space works
+  however fast you type.
+- To repeat a letter on a home row key, tap it, then hold it.
+- The layer keys (thumbs, Z and ;) keep Miryoku's timing: they switch layers
+  once held for 200 ms.
+
+The numbers can be tuned, see [Customizing](#customizing).
+
+### More layers
 
 Two more base layers exist but are only reached on purpose, by double tapping
 their key on Nav, Mouse or Media:
-- **Extra:** same as Base unless you pick another layout for it.
-- **Tap:** letters only, no hold functions.
+- **Extra:** same as Base unless you change it.
+- **Tap:** the same letters, no hold functions.
 
 More about the layout:
 [Miryoku reference](https://github.com/manna-harbour/miryoku/tree/master/docs/reference).
@@ -70,7 +106,7 @@ Mac mode is the same layout with Mac-native modifiers and shortcuts:
 
 | | Windows mode | Mac mode |
 |---|---|---|
-| Hold A / ' | Win | Ctrl |
+| Hold A / P | Win | Ctrl |
 | Hold S / L | Alt | Option |
 | Hold D / K | Ctrl | Cmd |
 | Hold F / J | Shift | Shift |
@@ -122,7 +158,10 @@ cp -X totem_left-seeeduino_xiao_ble-zmk.uf2 /Volumes/XIAO-SENSE/
 
 ### Later updates
 
-- Keymap changes only: flash the **left** half (it holds the keymap).
+- Keymap changes only: flash the **left** half (it holds the keymap). If you
+  ever saved changes in ZMK Studio, click **Restore Stock Settings** in Studio
+  afterwards, otherwise the saved layers replace the new ones
+  ([details](#zmk-studio)).
 - Changes to `config/totem.conf`, `build.yaml` or `boards/`: flash **both** halves.
 - If the halves stop talking to each other, or a computer won't reconnect,
   repeat the first-time steps.
@@ -151,9 +190,9 @@ as a second battery:
 
 ## Bluetooth profiles
 
-The keyboard remembers up to 4 devices. Hold **Esc** (Media layer) and use the
-right hand's bottom row. For "Shift + tap", also hold **F** (Shift on the left
-home row):
+The keyboard remembers up to 4 devices. Hold **`` ` ``** (the outer left thumb
+key, Media layer) and use the right hand's bottom row. For "Shift + tap", also
+hold **F** (Shift on the left home row):
 
 | Key | Tap | Shift + tap |
 |---|---|---|
@@ -161,7 +200,7 @@ home row):
 | M | Bluetooth device 1 | forget device 1 |
 | , | Bluetooth device 2 | forget device 2 |
 | . | Bluetooth device 3 | forget device 3 |
-| / | Bluetooth device 4 | forget device 4 |
+| ; | Bluetooth device 4 | forget device 4 |
 
 For example: device 1 for Windows, 2 for the Mac, 3 for DeX. To pair a new
 device, select a free slot (or forget one) and pair **TOTEM** from that device.
@@ -175,8 +214,8 @@ flashing firmware.
 2. Open <https://zmk.studio> in Chrome or Edge, or install the desktop app
    from <https://zmk.studio/download>.
 3. Select the TOTEM.
-4. **Unlock** the keyboard: hold Space and tap Q.
-   - The same key is also under Tab or Esc (with Q), and under Enter, Bksp or Del (with P).
+4. **Unlock** the keyboard: hold Tab and tap Q.
+   - The same key is also under Space or `` ` `` (with Q), and under Enter, `/` or `\` (with `'`).
    - This is where Miryoku normally puts its "Boot" key. Boot keys are
      disabled here; use the reset button to flash.
 5. Edit and save.
@@ -184,11 +223,17 @@ flashing firmware.
 Things to know:
 
 - **Studio vs the keymap file.** Once you save a change in Studio, the keyboard
-  ignores later changes to `config/totem.keymap` until you click
-  **Restore Stock Settings** in Studio. Flashing `settings_reset` also clears it.
+  keeps its saved copy of that layer and ignores the layer in
+  `config/totem.keymap`, even after flashing new firmware, until you click
+  **Restore Stock Settings** in Studio. Flashing `settings_reset` also clears it
+  (along with the Bluetooth pairings). Saved layers are matched by position in
+  the layer list, so when layers are added or removed (like Nav Lock was),
+  restore stock settings, or old layers land on the wrong ones.
 - **Mac layers are separate.** Every layer exists twice: "Base", "Nav", … for
   Windows and "Mac BASE", "Mac NAV", … for Mac. Studio edits one layer at a
   time, so change both if you want a key the same in both modes.
+- **Nav Lock is a copy of Nav.** It only differs in the H key, so a change to
+  Nav belongs in Nav Lock (and Mac NAV_LOCK) too.
 - **Some things stay in the files.** Combos (the mode switch) and timings can't
   be changed in Studio.
 - **Connection.** Studio works over USB on all systems, but over Bluetooth only on Linux.
@@ -197,30 +242,35 @@ Things to know:
 
 | File | What's in it |
 |---|---|
-| `config/totem.keymap` | Miryoku options, Studio unlock key, mode switch combos |
+| `config/totem.keymap` | The layers (tables in the TOTEM's shape), home row mod timing, Studio unlock key, mode switch combos |
 | `config/mac_mode.dtsi` | What Mac mode changes |
 | `config/totem.conf` | Settings for both halves (mouse keys, sleep) |
 | `build.yaml` | Which firmware gets built; left-half-only settings (Studio, battery reporting) |
-| `config/miryoku/` | Unmodified copy of [Miryoku ZMK](https://github.com/manna-harbour/miryoku_zmk) (commit `559aa4b`) |
+| `config/miryoku/` | Unmodified copy of [Miryoku ZMK](https://github.com/manna-harbour/miryoku_zmk) (commit `559aa4b`): the building blocks the layer tables use |
 | `boards/shields/totem/` | Hardware definition (pins, key positions); normally no need to touch |
 | `docs/layout.svg` | Layer diagram (a snapshot made with [keymap-drawer](https://github.com/caksoylar/keymap-drawer); it does not update itself) |
 
-Miryoku options (e.g. `MIRYOKU_NAV_INVERTEDT` for inverted-T arrows) are
-listed in the
-[Miryoku reference](https://github.com/manna-harbour/miryoku/tree/master/docs/reference#alternative-layouts).
-Add them as `#define`s at the top of `config/totem.keymap`. Mac mode follows
-automatically.
+To change a key, edit it in its layer table in `config/totem.keymap`. The Mac
+layers are generated from the same tables (with Ctrl/Cmd swapped), so they
+follow automatically. The names used in the tables (`U_MT`, `U_LT`, `U_RDO`, …)
+are explained right above them.
 
-The home row mods use Miryoku's default timing (200 ms). If keys trigger as
-modifiers by accident (or not when wanted), add a line like this at the end of
-`config/totem.keymap`. It applies to both modes.
+The home row mod timing is near the end of `config/totem.keymap`: `&u_mt` for
+Win/Alt/Ctrl/AltGr and `u_mt_shift` for Shift, used by both modes.
+- Modifiers trigger by accident while typing: raise `require-prior-idle-ms`
+  (for example to 150).
+- A modifier held on its own takes too long: lower `tapping-term-ms`.
+
+The layer keys use Miryoku's `&u_lt`. To have them switch layers as soon as
+another key is pressed and released too, add this line at the end of
+`config/totem.keymap`:
 
 ```c
-&u_mt { tapping-term-ms = <230>; };
+&u_lt { flavor = "balanced"; };
 ```
 
 To update Miryoku, replace `config/miryoku/` with the `miryoku/` folder of a
-newer Miryoku ZMK. Only `mapping/38/totem.h` is needed from its `mapping/` folder.
+newer Miryoku ZMK (its `mapping/` folder isn't used).
 
 ## Upgrading to ZMK v0.4
 
@@ -238,6 +288,8 @@ Once [ZMK v0.4](https://github.com/zmkfirmware/zmk/releases) is released:
   the Tap layer (double tap on the Nav, Mouse or Media layer). Press all 3
   left thumb keys to get back to Windows mode, or all 3 right ones for Mac
   mode.
+- **Letters stop typing, J K L P move the cursor:** Nav is locked (Tab + H).
+  Tap H to go back to Base.
 - **One half doesn't type:** the halves aren't connected. Press reset on
   both at the same time; if that doesn't help, redo the first-time flashing steps.
 - **A computer won't reconnect:** remove TOTEM from its Bluetooth list,
