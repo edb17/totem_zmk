@@ -42,15 +42,15 @@ home row of the *same* hand into modifiers:
 | Space → Mouse | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
 | Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift; Caps Lock where Num has `.` |
 | / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `. 1 2 3 -` (`.` under `]`)                       |
-| \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are), Menu    |
+| \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are)          |
 | `` ` `` → Media | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
 
 Num, Sym and Fun keep Tab and Space on their usual left thumb keys, and Nav
 has Enter, `/` and `\` on the right thumbs, so holding these repeats them
 (on Base, holding them switches layers instead).
 
-On Nav, Mouse and Media the outer pinky keys are **Print Screen** (left) and
-**Delete** (right). Caps Word (capitals
+The outer pinky keys are Esc and Bksp on every layer except Media, where they
+are **Print Screen** (left) and **Delete** (right). Caps Word (capitals
 until the end of the word) is on the G key of Nav; with Shift it's Caps Lock.
 
 Undo, cut, copy, paste, redo always come in that order from the pinky inwards,
