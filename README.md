@@ -38,12 +38,16 @@ home row of the *same* hand into modifiers:
 
 | Hold          | Other hand gets                                                              |
 |---------------|------------------------------------------------------------------------------|
-| Tab → Nav     | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Enter, Bksp, Del on the thumbs. H locks Nav ([see below](#nav-lock)) |
+| Tab → Nav     | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Enter, `/`, `\` on the thumbs. H locks Nav ([see below](#nav-lock)) |
 | Space → Mouse | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
-| Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift              |
-| / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `1 2 3 -`                                        |
+| Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift; Caps Lock where Num has `.` |
+| / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `. 1 2 3 -` (`.` under `]`)                       |
 | \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are), Menu    |
 | `` ` `` → Media | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
+
+Num, Sym and Fun keep Tab and Space on their usual left thumb keys, and Nav
+has Enter, `/` and `\` on the right thumbs, so holding these repeats them
+(on Base, holding them switches layers instead).
 
 On Nav, Mouse and Media the outer pinky keys are **Print Screen** (left) and
 **Delete** (right). Caps Word (capitals
