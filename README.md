@@ -23,10 +23,10 @@ on the [Miryoku](https://github.com/manna-harbour/miryoku) layers.
          │ Win │ Alt │Ctrl │Shift│     │   │     │Shift│Ctrl │ Alt │ Win │
    ┌─────┼─────┼─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┼─────┼─────┐
    │ Esc │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  ;  │Bksp │
-   │     │ Btn │AltGr│     │     │     │   │     │     │     │AltGr│ Btn │     │
+   │     │     │AltGr│     │     │     │   │     │     │     │AltGr│     │     │
    └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                      │  `  │ Tab │Space│   │Enter│  /  │  \  │
-                     │     │ Nav │Mouse│   │ Sym │ Num │ Fun │
+                     │ Btn │ Nav │Mouse│   │ Sym │ Num │ Fun │
                      └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
@@ -43,7 +43,7 @@ home row of the *same* hand into modifiers:
 | Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift              |
 | / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `1 2 3 -`                                        |
 | \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are), Menu    |
-| Z or ; → Button | mouse buttons on both thumbs; left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G); right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)) |
+| `` ` `` → Button | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
 
 On Nav, Mouse and Button the outer pinky keys are **Print Screen** (left) and
 **Delete** (right). Caps Word (capitals
@@ -82,7 +82,7 @@ on its own (for example Shift+click), it becomes the modifier after 200 ms
   Shift (F and J) skips this pause, so a capital right after a space works
   however fast you type.
 - To repeat a letter on a home row key, tap it, then hold it.
-- The layer keys (thumbs, Z and ;) keep Miryoku's timing: they switch layers
+- The thumb layer keys keep Miryoku's timing: they switch layers
   once held for 200 ms.
 
 The numbers can be tuned, see [Customizing](#customizing).
@@ -192,8 +192,8 @@ as a second battery:
 
 ## Bluetooth profiles
 
-The keyboard remembers up to 4 devices. Hold **Z** (Button layer) and use the
-right hand. For "Shift + tap", also hold **F** (Shift on the left home row):
+The keyboard remembers up to 4 devices. Hold **`` ` ``** (Button layer) and use
+the right hand. For "Shift + tap", also hold **F** (Shift on the left home row):
 
 | Key | Tap | Shift + tap |
 |---|---|---|
