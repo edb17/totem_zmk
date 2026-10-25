@@ -20,7 +20,7 @@
 // Saved here, restored at the end of this file
 #pragma push_macro("U_BASE")
 #pragma push_macro("U_TAP")
-#pragma push_macro("U_BUTTON")
+#pragma push_macro("U_MEDIA")
 #pragma push_macro("U_NAV")
 #pragma push_macro("U_NAV_LOCK")
 #pragma push_macro("U_MOUSE")
@@ -39,7 +39,7 @@
 // Layer numbers seen by the Mac layers
 #undef U_BASE
 #undef U_TAP
-#undef U_BUTTON
+#undef U_MEDIA
 #undef U_NAV
 #undef U_NAV_LOCK
 #undef U_MOUSE
@@ -48,7 +48,7 @@
 #undef U_FUN
 #define U_BASE     9
 #define U_TAP      10
-#define U_BUTTON   11
+#define U_MEDIA    11
 #define U_NAV      12
 #define U_NAV_LOCK 13
 #define U_MOUSE    14
@@ -64,7 +64,7 @@ MIRYOKU_LAYER_LIST
 
 #define u_to_U_BASE     u_to_mac_U_BASE
 #define u_to_U_TAP      u_to_mac_U_TAP
-#define u_to_U_BUTTON   u_to_mac_U_BUTTON
+#define u_to_U_MEDIA    u_to_mac_U_MEDIA
 #define u_to_U_NAV      u_to_mac_U_NAV
 #define u_to_U_NAV_LOCK u_to_mac_U_NAV_LOCK
 #define u_to_U_MOUSE    u_to_mac_U_MOUSE
@@ -108,7 +108,7 @@ MIRYOKU_LAYER_LIST
 // Back to normal for anything included after this file
 #pragma pop_macro("U_BASE")
 #pragma pop_macro("U_TAP")
-#pragma pop_macro("U_BUTTON")
+#pragma pop_macro("U_MEDIA")
 #pragma pop_macro("U_NAV")
 #pragma pop_macro("U_NAV_LOCK")
 #pragma pop_macro("U_MOUSE")
@@ -125,7 +125,7 @@ MIRYOKU_LAYER_LIST
 #pragma pop_macro("PSCRN")
 #undef u_to_U_BASE
 #undef u_to_U_TAP
-#undef u_to_U_BUTTON
+#undef u_to_U_MEDIA
 #undef u_to_U_NAV
 #undef u_to_U_NAV_LOCK
 #undef u_to_U_MOUSE

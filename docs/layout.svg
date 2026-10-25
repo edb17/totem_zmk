@@ -268,8 +268,8 @@ path.combo {
 <g transform="translate(241, 236)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">`</text>
-<a href="#Button">
-<text x="0" y="24" class="key hold layer-activator">Button</text>
+<a href="#Media">
+<text x="0" y="24" class="key hold layer-activator">Media</text>
 </a></g>
 <g transform="translate(303, 245) rotate(15.0)" class="key keypos-33">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -321,8 +321,8 @@ path.combo {
 </g>
 </g>
 </g>
-<g transform="translate(30, 419)" class="layer-Button">
-<text x="0" y="28" class="label" id="Button">Button:</text>
+<g transform="translate(30, 419)" class="layer-Media">
+<text x="0" y="28" class="label" id="Media">Media:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(73, 113) rotate(-10.0)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>

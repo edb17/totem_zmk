@@ -43,14 +43,14 @@ home row of the *same* hand into modifiers:
 | Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift              |
 | / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `1 2 3 -`                                        |
 | \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are), Menu    |
-| `` ` `` → Button | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
+| `` ` `` → Media | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
 
-On Nav, Mouse and Button the outer pinky keys are **Print Screen** (left) and
+On Nav, Mouse and Media the outer pinky keys are **Print Screen** (left) and
 **Delete** (right). Caps Word (capitals
 until the end of the word) is on the G key of Nav; with Shift it's Caps Lock.
 
 Undo, cut, copy, paste, redo always come in that order from the pinky inwards,
-mirrored on the right hand (Nav and Mouse). On the left hand (Button) that puts
+mirrored on the right hand (Nav and Mouse). On the left hand (Media) that puts
 them on Z, X, C, V and B, like Ctrl+Z/X/C/V.
 
 Nav and Mouse also have double-tap locks for Sym, Num and Fun on C, V and B (the
@@ -192,7 +192,7 @@ as a second battery:
 
 ## Bluetooth profiles
 
-The keyboard remembers up to 4 devices. Hold **`` ` ``** (Button layer) and use
+The keyboard remembers up to 4 devices. Hold **`` ` ``** (Media layer) and use
 the right hand. For "Shift + tap", also hold **F** (Shift on the left home row):
 
 | Key | Tap | Shift + tap |
@@ -295,7 +295,7 @@ Once [ZMK v0.4](https://github.com/zmkfirmware/zmk/releases) is released:
 - **One half doesn't type:** the halves aren't connected. Press reset on
   both at the same time; if that doesn't help, redo the first-time flashing steps.
 - **A computer won't reconnect:** remove TOTEM from its Bluetooth list,
-  forget the profile on the keyboard (Shift + its key on the Button layer), and
+  forget the profile on the keyboard (Shift + its key on the Media layer), and
   pair again.
 - **A Mac wakes up from sleep by itself:** a known macOS reaction to battery
   reports. Adding `CONFIG_BT_BAS=n` to `config/totem.conf` stops it, but then no
