@@ -26,7 +26,7 @@ on the [Miryoku](https://github.com/manna-harbour/miryoku) layers.
    │     │ Btn │AltGr│     │     │     │   │     │     │     │AltGr│ Btn │     │
    └─────┴─────┴─────┼─────┼─────┼─────┤   ├─────┼─────┼─────┼─────┴─────┴─────┘
                      │  `  │ Tab │Space│   │Enter│  /  │  \  │
-                     │Media│ Nav │Mouse│   │ Sym │ Num │ Fun │
+                     │     │ Nav │Mouse│   │ Sym │ Num │ Fun │
                      └─────┴─────┴─────┘   └─────┴─────┴─────┘
 ```
 
@@ -40,19 +40,22 @@ home row of the *same* hand into modifiers:
 |---------------|------------------------------------------------------------------------------|
 | Tab → Nav     | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Enter, Bksp, Del on the thumbs. H locks Nav ([see below](#nav-lock)) |
 | Space → Mouse | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
-| `` ` `` → Media | volume, previous/next track, play/pause, stop, fast forward, mute; Bluetooth profiles ([see below](#bluetooth-profiles)) |
 | Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift              |
 | / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `1 2 3 -`                                        |
 | \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are), Menu    |
-| Z or ; → Button | undo/cut/copy/paste/redo and mouse buttons, on both hands                  |
+| Z or ; → Button | mouse buttons on both thumbs; left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G); right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)) |
 
 On Nav, Mouse and Button the outer pinky keys are **Print Screen** (left) and
-**Delete** (right); on Media the right one is **Mute**. Caps Word (capitals
+**Delete** (right). Caps Word (capitals
 until the end of the word) is on the G key of Nav; with Shift it's Caps Lock.
 
 Undo, cut, copy, paste, redo always come in that order from the pinky inwards,
-mirrored on the right hand. On the left hand that puts them on Z, X, C, V and B,
-like Ctrl+Z/X/C/V.
+mirrored on the right hand (Nav and Mouse). On the left hand (Button) that puts
+them on Z, X, C, V and B, like Ctrl+Z/X/C/V.
+
+Nav and Mouse also have double-tap locks for Sym, Num and Fun on C, V and B (the
+same order as their thumb keys): the layer stays on until you double tap Base on
+its top row.
 
 All layers (Windows mode; held keys are shaded, "2×" keys need a double tap):
 
@@ -68,10 +71,11 @@ this is a separate layer, "Nav Lock", a copy of Nav.)
 
 A home row key turns into its modifier as soon as you press **and release**
 another key while holding it, so Shift+letter works at full typing speed. Held
-on its own (for example Shift+click), it becomes the modifier after 200 ms.
+on its own (for example Shift+click), it becomes the modifier after 200 ms
+(150 ms for Shift).
 
 - Let go of the letter before the modifier. If the modifier comes up first
-  (within 200 ms), you get both letters; that's what keeps quick rolls like
+  (within 200 ms, 150 ms for Shift), you get both letters; that's what keeps quick rolls like
   "fo" from turning into "O".
 - To keep Win, Alt, Ctrl and AltGr from triggering by accident while you type,
   a home row key pressed within 125 ms of the previous key is always a letter.
@@ -85,10 +89,8 @@ The numbers can be tuned, see [Customizing](#customizing).
 
 ### More layers
 
-Two more base layers exist but are only reached on purpose, by double tapping
-their key on Nav, Mouse or Media:
-- **Extra:** same as Base unless you change it.
-- **Tap:** the same letters, no hold functions.
+One more base layer exists but is only reached on purpose, by double tapping
+its key on Nav or Mouse: **Tap**, the same letters with no hold functions.
 
 More about the layout:
 [Miryoku reference](https://github.com/manna-harbour/miryoku/tree/master/docs/reference).
@@ -190,17 +192,17 @@ as a second battery:
 
 ## Bluetooth profiles
 
-The keyboard remembers up to 4 devices. Hold **`` ` ``** (the outer left thumb
-key, Media layer) and use the right hand's bottom row. For "Shift + tap", also
-hold **F** (Shift on the left home row):
+The keyboard remembers up to 4 devices. Hold **Z** (Button layer) and use the
+right hand. For "Shift + tap", also hold **F** (Shift on the left home row):
 
 | Key | Tap | Shift + tap |
 |---|---|---|
-| N | toggle USB / Bluetooth output | USB output |
-| M | Bluetooth device 1 | forget device 1 |
-| , | Bluetooth device 2 | forget device 2 |
-| . | Bluetooth device 3 | forget device 3 |
-| ; | Bluetooth device 4 | forget device 4 |
+| N | Bluetooth device 1 | forget device 1 |
+| M | Bluetooth device 2 | forget device 2 |
+| , | Bluetooth device 3 | forget device 3 |
+| . | Bluetooth device 4 | forget device 4 |
+| ; | forget the selected device | |
+| H | toggle USB / Bluetooth output | USB output |
 
 For example: device 1 for Windows, 2 for the Mac, 3 for DeX. To pair a new
 device, select a free slot (or forget one) and pair **TOTEM** from that device.
@@ -215,7 +217,7 @@ flashing firmware.
    from <https://zmk.studio/download>.
 3. Select the TOTEM.
 4. **Unlock** the keyboard: hold Tab and tap Q.
-   - The same key is also under Space or `` ` `` (with Q), and under Enter, `/` or `\` (with `'`).
+   - The same key is also under Space (with Q), and under Enter, `/` or `\` (with `'`).
    - This is where Miryoku normally puts its "Boot" key. Boot keys are
      disabled here; use the reset button to flash.
 5. Edit and save.
@@ -227,7 +229,7 @@ Things to know:
   `config/totem.keymap`, even after flashing new firmware, until you click
   **Restore Stock Settings** in Studio. Flashing `settings_reset` also clears it
   (along with the Bluetooth pairings). Saved layers are matched by position in
-  the layer list, so when layers are added or removed (like Nav Lock was),
+  the layer list, so when layers are added or removed (as in this version),
   restore stock settings, or old layers land on the wrong ones.
 - **Mac layers are separate.** Every layer exists twice: "Base", "Nav", … for
   Windows and "Mac BASE", "Mac NAV", … for Mac. Studio edits one layer at a
@@ -285,7 +287,7 @@ Once [ZMK v0.4](https://github.com/zmkfirmware/zmk/releases) is released:
 ## Troubleshooting
 
 - **Modifiers and layers suddenly stop working:** you probably switched to
-  the Tap layer (double tap on the Nav, Mouse or Media layer). Press all 3
+  the Tap layer (double tap on the Nav or Mouse layer). Press all 3
   left thumb keys to get back to Windows mode, or all 3 right ones for Mac
   mode.
 - **Letters stop typing, J K L P move the cursor:** Nav is locked (Tab + H).
@@ -293,7 +295,7 @@ Once [ZMK v0.4](https://github.com/zmkfirmware/zmk/releases) is released:
 - **One half doesn't type:** the halves aren't connected. Press reset on
   both at the same time; if that doesn't help, redo the first-time flashing steps.
 - **A computer won't reconnect:** remove TOTEM from its Bluetooth list,
-  forget the profile on the keyboard (Shift + its key on the Media layer), and
+  forget the profile on the keyboard (Shift + its key on the Button layer), and
   pair again.
 - **A Mac wakes up from sleep by itself:** a known macOS reaction to battery
   reports. Adding `CONFIG_BT_BAS=n` to `config/totem.conf` stops it, but then no

@@ -1,5 +1,5 @@
-// Mac mode: a second copy of every layer (layers 11-21), generated from the
-// same layer macros as the Windows layers (0-10), but with:
+// Mac mode: a second copy of every layer (layers 9-17), generated from the
+// same layer macros as the Windows layers (0-8), but with:
 //   - Ctrl and Cmd swapped everywhere (home row mods and the mods on every
 //     layer), so the finger that holds Ctrl on Windows holds Cmd on Mac
 //   - Undo / Cut / Copy / Paste / Redo as Cmd shortcuts
@@ -10,7 +10,7 @@
 // Include after miryoku/miryoku.dtsi.
 
 #define WIN_BASE 0
-#define MAC_BASE 11
+#define MAC_BASE 9
 
 // The Mac layer numbers below start right after the Windows layers
 #if U_FUN + 1 != MAC_BASE
@@ -19,13 +19,11 @@
 
 // Saved here, restored at the end of this file
 #pragma push_macro("U_BASE")
-#pragma push_macro("U_EXTRA")
 #pragma push_macro("U_TAP")
 #pragma push_macro("U_BUTTON")
 #pragma push_macro("U_NAV")
 #pragma push_macro("U_NAV_LOCK")
 #pragma push_macro("U_MOUSE")
-#pragma push_macro("U_MEDIA")
 #pragma push_macro("U_NUM")
 #pragma push_macro("U_SYM")
 #pragma push_macro("U_FUN")
@@ -40,27 +38,23 @@
 
 // Layer numbers seen by the Mac layers
 #undef U_BASE
-#undef U_EXTRA
 #undef U_TAP
 #undef U_BUTTON
 #undef U_NAV
 #undef U_NAV_LOCK
 #undef U_MOUSE
-#undef U_MEDIA
 #undef U_NUM
 #undef U_SYM
 #undef U_FUN
-#define U_BASE     11
-#define U_EXTRA    12
-#define U_TAP      13
-#define U_BUTTON   14
-#define U_NAV      15
-#define U_NAV_LOCK 16
-#define U_MOUSE    17
-#define U_MEDIA    18
-#define U_NUM      19
-#define U_SYM      20
-#define U_FUN      21
+#define U_BASE     9
+#define U_TAP      10
+#define U_BUTTON   11
+#define U_NAV      12
+#define U_NAV_LOCK 13
+#define U_MOUSE    14
+#define U_NUM      15
+#define U_SYM      16
+#define U_FUN      17
 
 // Base layer switch keys (double tap) that stay within the Mac layers
 #define MIRYOKU_X(LAYER, STRING) \
@@ -69,13 +63,11 @@ MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 
 #define u_to_U_BASE     u_to_mac_U_BASE
-#define u_to_U_EXTRA    u_to_mac_U_EXTRA
 #define u_to_U_TAP      u_to_mac_U_TAP
 #define u_to_U_BUTTON   u_to_mac_U_BUTTON
 #define u_to_U_NAV      u_to_mac_U_NAV
 #define u_to_U_NAV_LOCK u_to_mac_U_NAV_LOCK
 #define u_to_U_MOUSE    u_to_mac_U_MOUSE
-#define u_to_U_MEDIA    u_to_mac_U_MEDIA
 #define u_to_U_NUM      u_to_mac_U_NUM
 #define u_to_U_SYM      u_to_mac_U_SYM
 #define u_to_U_FUN      u_to_mac_U_FUN
@@ -115,13 +107,11 @@ MIRYOKU_LAYER_LIST
 
 // Back to normal for anything included after this file
 #pragma pop_macro("U_BASE")
-#pragma pop_macro("U_EXTRA")
 #pragma pop_macro("U_TAP")
 #pragma pop_macro("U_BUTTON")
 #pragma pop_macro("U_NAV")
 #pragma pop_macro("U_NAV_LOCK")
 #pragma pop_macro("U_MOUSE")
-#pragma pop_macro("U_MEDIA")
 #pragma pop_macro("U_NUM")
 #pragma pop_macro("U_SYM")
 #pragma pop_macro("U_FUN")
@@ -134,13 +124,11 @@ MIRYOKU_LAYER_LIST
 #pragma pop_macro("U_UND")
 #pragma pop_macro("PSCRN")
 #undef u_to_U_BASE
-#undef u_to_U_EXTRA
 #undef u_to_U_TAP
 #undef u_to_U_BUTTON
 #undef u_to_U_NAV
 #undef u_to_U_NAV_LOCK
 #undef u_to_U_MOUSE
-#undef u_to_U_MEDIA
 #undef u_to_U_NUM
 #undef u_to_U_SYM
 #undef u_to_U_FUN
