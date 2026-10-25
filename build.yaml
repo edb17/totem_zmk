@@ -1,0 +1,22 @@
+# Firmware builds for the TOTEM (Seeed XIAO nRF52840 on both halves).
+#
+# Board name on ZMK v0.3 is `seeeduino_xiao_ble`.
+# When moving to ZMK v0.4 it becomes `xiao_ble//zmk` (see README).
+---
+include:
+  # Left half = central: talks to the computer, holds the keymap.
+  # - ZMK Studio (live keymap editing over USB)
+  # - Reports the right half's battery level to the computer as well
+  - board: seeeduino_xiao_ble
+    shield: totem_left
+    snippet: studio-rpc-usb-uart
+    cmake-args: >-
+      -DCONFIG_ZMK_STUDIO=y
+      -DCONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING=y
+      -DCONFIG_ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY=y
+  - board: seeeduino_xiao_ble
+    shield: totem_right
+  # Clears pairing/Studio data. Flash it to a half to start fresh, then flash
+  # that half's normal firmware again.
+  - board: seeeduino_xiao_ble
+    shield: settings_reset

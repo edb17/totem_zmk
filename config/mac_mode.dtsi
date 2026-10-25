@@ -1,0 +1,135 @@
+// Mac mode: a second copy of every Miryoku layer (layers 10-19), generated
+// from the same Miryoku macros as the Windows layers (0-9), but with:
+//   - Ctrl and Cmd swapped everywhere (home row mods and the mods on every
+//     layer), so the finger that holds Ctrl on Windows holds Cmd on Mac
+//   - Undo / Cut / Copy / Paste / Redo as Cmd shortcuts
+//   - Print Screen as Cmd+Shift+4 (screenshot of a selection)
+// Layer keys on the Mac layers lead to other Mac layers, so the keyboard stays
+// in Mac mode until it is switched back (combos in totem.keymap) or restarts.
+//
+// Include after miryoku/miryoku.dtsi.
+
+#define WIN_BASE 0
+#define MAC_BASE 10
+
+// Saved here, restored at the end of this file
+#pragma push_macro("U_BASE")
+#pragma push_macro("U_EXTRA")
+#pragma push_macro("U_TAP")
+#pragma push_macro("U_BUTTON")
+#pragma push_macro("U_NAV")
+#pragma push_macro("U_MOUSE")
+#pragma push_macro("U_MEDIA")
+#pragma push_macro("U_NUM")
+#pragma push_macro("U_SYM")
+#pragma push_macro("U_FUN")
+#pragma push_macro("LGUI")
+#pragma push_macro("LCTRL")
+#pragma push_macro("U_RDO")
+#pragma push_macro("U_PST")
+#pragma push_macro("U_CPY")
+#pragma push_macro("U_CUT")
+#pragma push_macro("U_UND")
+#pragma push_macro("PSCRN")
+
+// Layer numbers seen by the Mac layers
+#undef U_BASE
+#undef U_EXTRA
+#undef U_TAP
+#undef U_BUTTON
+#undef U_NAV
+#undef U_MOUSE
+#undef U_MEDIA
+#undef U_NUM
+#undef U_SYM
+#undef U_FUN
+#define U_BASE   10
+#define U_EXTRA  11
+#define U_TAP    12
+#define U_BUTTON 13
+#define U_NAV    14
+#define U_MOUSE  15
+#define U_MEDIA  16
+#define U_NUM    17
+#define U_SYM    18
+#define U_FUN    19
+
+// Base layer switch keys (double tap) that stay within the Mac layers
+#define MIRYOKU_X(LAYER, STRING) \
+MIRYOKU_DOUBLE_TAP_GUARD(u_to_mac_U_##LAYER, &to U_##LAYER)
+MIRYOKU_LAYER_LIST
+#undef MIRYOKU_X
+
+#define u_to_U_BASE   u_to_mac_U_BASE
+#define u_to_U_EXTRA  u_to_mac_U_EXTRA
+#define u_to_U_TAP    u_to_mac_U_TAP
+#define u_to_U_BUTTON u_to_mac_U_BUTTON
+#define u_to_U_NAV    u_to_mac_U_NAV
+#define u_to_U_MOUSE  u_to_mac_U_MOUSE
+#define u_to_U_MEDIA  u_to_mac_U_MEDIA
+#define u_to_U_NUM    u_to_mac_U_NUM
+#define u_to_U_SYM    u_to_mac_U_SYM
+#define u_to_U_FUN    u_to_mac_U_FUN
+
+// Ctrl <-> Cmd
+#undef LGUI
+#undef LCTRL
+#define LGUI  (LEFT_CONTROL)
+#define LCTRL (LEFT_GUI)
+
+// Mac shortcuts (LG() is Cmd regardless of the swap above)
+#undef U_RDO
+#undef U_PST
+#undef U_CPY
+#undef U_CUT
+#undef U_UND
+#define U_RDO &kp LS(LG(Z))
+#define U_PST &kp LG(V)
+#define U_CPY &kp LG(C)
+#define U_CUT &kp LG(X)
+#define U_UND &kp LG(Z)
+
+#undef PSCRN
+#define PSCRN LS(LG(N4))
+
+/ {
+    keymap {
+#define MIRYOKU_X(LAYER, STRING) \
+        mac_##LAYER { \
+            display-name = U_STRINGIFY(Mac LAYER); \
+            bindings = < U_MACRO_VA_ARGS(MIRYOKU_LAYERMAPPING_##LAYER, MIRYOKU_LAYER_##LAYER) >; \
+        };
+MIRYOKU_LAYER_LIST
+#undef MIRYOKU_X
+    };
+};
+
+// Back to normal for anything included after this file
+#pragma pop_macro("U_BASE")
+#pragma pop_macro("U_EXTRA")
+#pragma pop_macro("U_TAP")
+#pragma pop_macro("U_BUTTON")
+#pragma pop_macro("U_NAV")
+#pragma pop_macro("U_MOUSE")
+#pragma pop_macro("U_MEDIA")
+#pragma pop_macro("U_NUM")
+#pragma pop_macro("U_SYM")
+#pragma pop_macro("U_FUN")
+#pragma pop_macro("LGUI")
+#pragma pop_macro("LCTRL")
+#pragma pop_macro("U_RDO")
+#pragma pop_macro("U_PST")
+#pragma pop_macro("U_CPY")
+#pragma pop_macro("U_CUT")
+#pragma pop_macro("U_UND")
+#pragma pop_macro("PSCRN")
+#undef u_to_U_BASE
+#undef u_to_U_EXTRA
+#undef u_to_U_TAP
+#undef u_to_U_BUTTON
+#undef u_to_U_NAV
+#undef u_to_U_MOUSE
+#undef u_to_U_MEDIA
+#undef u_to_U_NUM
+#undef u_to_U_SYM
+#undef u_to_U_FUN

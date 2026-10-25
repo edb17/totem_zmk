@@ -1,0 +1,44 @@
+// Miryoku for the TOTEM, with a Windows mode and a Mac mode.
+//
+// Miryoku itself lives in miryoku/ (unmodified copy of
+// https://github.com/manna-harbour/miryoku_zmk), the Mac mode in mac_mode.dtsi.
+// Miryoku options: https://github.com/manna-harbour/miryoku/tree/master/docs/reference#alternative-layouts
+
+#define MIRYOKU_ALPHAS_QWERTY
+#define MIRYOKU_TAP_QWERTY
+#define MIRYOKU_CLIPBOARD_WIN
+
+#include "miryoku/mapping/38/totem.h"
+
+// Load Miryoku's macros early so the Boot key can be replaced before the
+// layers are generated. Reflashing is done with the reset button instead, and
+// the free slot unlocks ZMK Studio.
+#include "miryoku/miryoku.h"
+#undef U_BOOT
+#define U_BOOT &studio_unlock
+
+// Windows layers 0-9 (plain Miryoku)
+#include "miryoku/miryoku.dtsi"
+
+// Mac layers 10-19 (Miryoku with Ctrl/Cmd swapped and Mac shortcuts)
+#include "mac_mode.dtsi"
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        // All 3 left thumb keys at once: Windows mode
+        combo_windows_mode {
+            timeout-ms = <80>;
+            key-positions = <32 33 34>;
+            bindings = <&to WIN_BASE>;
+        };
+
+        // All 3 right thumb keys at once: Mac mode
+        combo_mac_mode {
+            timeout-ms = <80>;
+            key-positions = <35 36 37>;
+            bindings = <&to MAC_BASE>;
+        };
+    };
+};
