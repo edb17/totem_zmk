@@ -45,8 +45,8 @@ home row of the *same* hand into modifiers:
 | \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are)          |
 | `` ` `` → Media | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
 
-Num, Sym and Fun keep Tab and Space on their usual left thumb keys. Nav has
-Tab there too, Menu (the context menu key) where `` ` `` is, and Enter, `/`
+Media, Num, Sym and Fun keep Tab and Space on their usual left thumb keys. Nav
+has Tab there too, Menu (the context menu key) where `` ` `` is, and Enter, `/`
 and `\` on the right thumbs. Held on these layers, Tab, Space, Enter and the
 slashes repeat (on Base, holding them switches layers instead).
 
