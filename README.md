@@ -38,39 +38,57 @@ home row of the *same* hand into modifiers:
 
 | Hold          | Other hand gets                                                              |
 |---------------|------------------------------------------------------------------------------|
-| Space → Nav   | arrows (J K L P row: ←, ↓, ↑, →), Home/PgDn/PgUp/End, Insert, redo/paste/copy/cut/undo; Menu and Tab on the left thumbs, Enter, `/`, `\` on the right ones. H locks Nav ([see below](#nav-lock)) |
-| Tab → Mouse   | mouse movement, scroll wheel; right thumbs are mouse buttons                 |
-| Enter → Sym   | `{ & * ( )` / `} $ % ^ +` / `! @ # _`: the Num keys with Shift; Caps Lock where Num has `.` |
-| / → Num       | `[ 7 8 9 0` / `] 4 5 6 =` / `. 1 2 3 -` (`.` under `]`)                       |
-| \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 = -` are)          |
-| `` ` `` → Media | both hands. Left: undo/cut/copy/paste/redo, media keys (mute, volume, previous/next, play/pause on G). Right: screen brightness, Bluetooth and USB ([see below](#bluetooth-profiles)), mouse buttons on the thumbs |
+| Space → Nav   | Delete on H, arrows on J K L P (←, ↓, ↑, →), Insert/Home/PgDn/PgUp/End on the row below; Enter, `/`, `\` on the thumbs |
+| Tab → Mouse   | screen brightness on H (up) and N (down), mouse movement and scroll wheel next to them; mouse buttons on the thumbs |
+| `` ` `` → Media | USB/Bluetooth on H, play/pause, stop, previous, next on J K L P, Bluetooth devices on the row below ([see below](#bluetooth-profiles)); mute, volume down, volume up on the thumbs |
+| Enter → Sym   | `{ & * ( )` / `} $ % ^ _` / `! @ # +`: the Num keys with Shift; Caps Lock where Num has `.` |
+| / → Num       | `[ 7 8 9 0` / `] 4 5 6 -` / `. 1 2 3 =` (`.` under `]`)                       |
+| \ → Fun       | F1–F12 in the same spots as the digits (F10–F12 where `0 - =` are)          |
+
+Media, Nav and Mouse also have redo, paste, copy, cut, undo on the right top
+row (undo under the pinky).
+
+The hand holding the thumb key gets the same keys on every layer:
+
+| | Media, Nav, Mouse (left hand) | Num, Sym, Fun (right hand) |
+|---|---|---|
+| Home row | Win, Alt, Ctrl, Shift on A S D F | Shift, Ctrl, Alt, Win on J K L P |
+| Print Screen | G | H |
+| AltGr | X | `.` |
+| Double tap to switch to Base / Tap | R / W | U / O |
+| Double tap to lock a layer ([see below](#locking-a-layer)) | C, V, B | N, M, `,` |
+| ZMK Studio unlock | Q | `'` |
 
 Media, Num, Sym and Fun keep Tab and Space on their usual left thumb keys. Nav
-has Tab there too, Menu (the context menu key) where `` ` `` is, and Enter, `/`
-and `\` on the right thumbs. Held on these layers, Tab, Space, Enter and the
-slashes repeat (on Base, holding them switches layers instead).
+and Mouse have Menu (the context menu key) where `` ` `` is, and Nav keeps Tab
+and Mouse keeps Space next to it. Nav also has Enter, `/` and `\` on the right
+thumbs. Held on these layers, Tab, Space, Enter and the slashes repeat (on
+Base, holding them switches layers instead).
 
-The outer pinky keys are Esc and Bksp on every layer except Media, where they
-are **Print Screen** (left) and **Delete** (right). Caps Word (capitals
-until the end of the word) is on the G key of Nav; with Shift it's Caps Lock.
-
-Undo, cut, copy, paste, redo always come in that order from the pinky inwards,
-mirrored on the right hand (Nav and Mouse). On the left hand (Media) that puts
-them on Z, X, C, V and B, like Ctrl+Z/X/C/V.
-
-Nav and Mouse also have double-tap locks for Sym, Num and Fun on C, V and B (the
-same order as their thumb keys): the layer stays on until you double tap Base on
-its top row.
+The outer pinky keys are Esc and Bksp on every layer.
 
 All layers (Windows mode; held keys are shaded, "2×" keys need a double tap):
 
 ![TOTEM layers](docs/layout.svg)
 
-### Nav lock
+### Locking a layer
 
-Hold Space and tap **H**: Nav stays on after you let go of Space, so you can
-move around with one hand. Tap **H** again to go back to Base. (Behind the scenes
-this is a separate layer, "Nav Lock", a copy of Nav.)
+Double tap a bottom row key to keep a layer on without holding its thumb key.
+Each lock key sits right above the thumb key of the layer it locks:
+
+| While holding | Double tap | Locks |
+|---|---|---|
+| `` ` ``, Tab or Space | C / V / B | Media / Mouse / Nav |
+| Enter, `/` or `\` | N / M / , | Sym / Num / Fun |
+
+Lock from a neighbouring layer, for example hold Tab and double tap B for Nav,
+or hold Enter and double tap M for Num. The layer stays on after you let go.
+To go back, double tap Base: R on Media, Nav and Mouse, U on Num, Sym and Fun.
+
+The lock key of the layer you're holding (Space + B for Nav) only lasts until
+you let go of the thumb key: in ZMK v0.3 letting go of a layer key always
+turns its layer off, which also drops Mac mode back to Windows mode. ZMK v0.4
+keeps such a lock ([Upgrading](#upgrading-to-zmk-v04)).
 
 ### Home row mods
 
@@ -95,7 +113,8 @@ The numbers can be tuned, see [Customizing](#customizing).
 ### More layers
 
 One more base layer exists but is only reached on purpose, by double tapping
-its key on Nav or Mouse: **Tap**, the same letters with no hold functions.
+its key (W or O on the other layers): **Tap**, the same letters with no hold
+functions.
 
 More about the layout:
 [Miryoku reference](https://github.com/manna-harbour/miryoku/tree/master/docs/reference).
@@ -222,7 +241,7 @@ flashing firmware.
    from <https://zmk.studio/download>.
 3. Select the TOTEM.
 4. **Unlock** the keyboard: hold Space and tap Q.
-   - The same key is also under Tab (with Q), and under Enter, `/` or `\` (with `'`).
+   - Any thumb key works: Q with the left ones, `'` with the right ones.
    - This is where Miryoku normally puts its "Boot" key. Boot keys are
      disabled here; use the reset button to flash.
 5. Edit and save.
@@ -239,8 +258,6 @@ Things to know:
 - **Mac layers are separate.** Every layer exists twice: "Base", "Nav", … for
   Windows and "Mac BASE", "Mac NAV", … for Mac. Studio edits one layer at a
   time, so change both if you want a key the same in both modes.
-- **Nav Lock is a copy of Nav.** It only differs in the H key, so a change to
-  Nav belongs in Nav Lock (and Mac NAV_LOCK) too.
 - **Some things stay in the files.** Combos (the mode switch) and timings can't
   be changed in Studio.
 - **Connection.** Studio works over USB on all systems, but over Bluetooth only on Linux.
@@ -289,14 +306,19 @@ Once [ZMK v0.4](https://github.com/zmkfirmware/zmk/releases) is released:
 4. Read the release notes for anything else that changed, push, and flash both
    halves. The firmware file names will contain `xiao_ble` instead.
 
+Locking the layer you're holding (Space + B for Nav) then sticks too, and no
+longer drops Mac mode back to Windows mode.
+
 ## Troubleshooting
 
 - **Modifiers and layers suddenly stop working:** you probably switched to
-  the Tap layer (double tap on the Nav or Mouse layer). Press all 3
-  left thumb keys to get back to Windows mode, or all 3 right ones for Mac
-  mode.
-- **Letters stop typing, J K L P move the cursor:** Nav is locked (Space + H).
-  Tap H to go back to Base.
+  the Tap layer (double tap on W or O). Press all 3 left thumb keys to get back
+  to Windows mode, or all 3 right ones for Mac mode.
+- **Letters stop typing:** a layer is locked (double tap on the bottom row).
+  Double tap R (Media, Nav, Mouse) or U (Num, Sym, Fun), or press all 3 left
+  thumb keys (Windows mode) or right ones (Mac mode).
+- **Mac mode switched to Windows mode by itself:** you locked the layer you were
+  holding ([details](#locking-a-layer)). Press all 3 right thumb keys.
 - **One half doesn't type:** the halves aren't connected. Press reset on
   both at the same time; if that doesn't help, redo the first-time flashing steps.
 - **A computer won't reconnect:** remove TOTEM from its Bluetooth list,
